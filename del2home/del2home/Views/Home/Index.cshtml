@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model del2home.Models.Home
+@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <img src="~/images/ace.jpg" alt="ACE" class="center-block" />
+    <table align="center">
+        <tr>
+            <td>@Html.LabelFor(a => a.UserName)</td>
+            <td>@Html.TextBoxFor(a => a.UserName)</td>
+            <td><font color="red">@Html.ValidationMessageFor(a => a.UserName)</font></td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(a => a.Password)</td>
+            <td>@Html.PasswordFor(a => a.Password)</td>
+            <td><font color="red">@Html.ValidationMessageFor(a => a.Password)</font></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Login" /></td>
+            <td></td>
+        </tr>
+    </table>
+    <center><font class="remlist" color="red">@Html.ValidationSummary(true)</font></center>
+}
